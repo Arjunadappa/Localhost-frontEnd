@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+
+.box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Nunito', sans-serif;
+}
+
+.signUpContainer {
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 20vw;
+  border-radius: 6px;
+  padding: 1rem;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+.form-input{
+    font-family: inherit;
+    font-weight: 300;
+    padding:1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    border: 2px solid;
+    font-size: large;
+
+}
+.form-input:focus{
+    outline: none;
+}
+.button{
+    font-family: inherit;
+    font-weight: 400;
+    padding:1rem;
+    border-radius: 1rem;
+    font-size: large;
+    border: 2px solid;
+    flex: 0 0 25%;
+    margin-bottom: 1rem;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .cta {
+    position: relative;
+    margin: auto;
+    padding: 19px 22px;
+    transition: all 0.2s ease;
+  }
+  .cta:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 28px;
+    background: rgba(255, 171, 157, 0.5);
+    width: 56px;
+    height: 56px;
+    transition: all 0.3s ease;
+  }
+  .cta span {
+    position: relative;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 900;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+  .cta svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #111;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+  }
+  .cta:hover:before {
+    width: 100%;
+    background: #ffab9d;
+  }
+  .cta:hover svg {
+    transform: translateX(0);
+  }
+  .cta:active {
+    transform: scale(0.96);
+  }
+  
