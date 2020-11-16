@@ -56,13 +56,14 @@ class SignUp extends React.Component {
     render(){
         if (window.localStorage.getItem("token")) {
             this.loginWithToken()
+            console.log('done')
         }
         return (
             <div>
             {  (window.localStorage.getItem("token")) ? 
                 <div>
          
-                <div className="box-layout">
+                <div className="box-container">
 
                     <div>
                         Loading....

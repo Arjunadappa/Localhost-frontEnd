@@ -1,5 +1,9 @@
 import axios from 'axios';
-import {history} from '../routers/App'
+import {history} from '../routers/App';
+import {setLoginFailed} from "./main";
+import {resetUpload} from "./uploads";
+// import history from '../history';
+
 
 export const login = (id) => ({
     type: "LOGIN",
@@ -19,6 +23,7 @@ export const createAccountAction = (name,email,password) => {
             console.log(response)
             window.localStorage.setItem("token",token);
             dispatch(login(user_id));
+            console.log('hello')
             history.push("/home");
 
 
@@ -53,7 +58,35 @@ export const createLoginWithToken = (token,currentRoute) => {
         axios.get('http://localhost:4000/userService/me',bearerToken).then((response) => {
             const user_id = response.data._id;
             dispatch(login(user_id));
+            console.log(history)
             history.push(currentRoute);
         }).catch(e => console.log(e)) 
+    }
+}
+
+export const startLogout = () => {
+
+    return (dispatch) => {
+
+        const token = window.localStorage.getItem("token")
+
+        const config = {
+            headers: {'Authorization': "Bearer " + token}
+        };
+    
+        axios.post("http://localhost:3000/userService/logout/", undefined,config).then(() => {
+
+            window.localStorage.removeItem("token")
+
+            dispatch(resetUpload())
+            dispatch(setLoginFailed(false))
+            dispatch(logout())
+
+            history.push("/")
+
+        }).catch((err) => {
+            console.log(err);
+        })
+
     }
 }
