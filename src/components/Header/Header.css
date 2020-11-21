@@ -1,9 +1,10 @@
 .headerPane{
     display: flex;
-    position:fixed;
+    /* position:fixed; */
     width:100%;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Nunito', sans-serif;
 
 }
 .logo{
@@ -36,12 +37,16 @@
     width: 100%;
     background: #f1f3f4;
     border-radius:25px;
+    font-family: 'Nunito', sans-serif !important;
+    position: relative;
     
     
 }
 .header-input:focus{
     background: white;
+    border: 5px solid #50C8EF;
     outline: none;
+
     
 }
 .header__input__suggested {
@@ -144,4 +149,11 @@
         opacity: 0.7;
     }
 
+}
+.searchIcon{
+    position:absolute;
+    left: 4px;
+    top: 26px;
+    z-index: 3;
+    padding:1rem;
 }

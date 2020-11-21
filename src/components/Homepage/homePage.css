@@ -1,4 +1,9 @@
-.content{
-    position:absolute;
-    top: 50%;
+.Homepage{
+    display: flex;
+    flex-direction:column;
+}
+.sidebarContainer{
+    float: left;
+    border: 2px solid #50C8EF;
+
 }

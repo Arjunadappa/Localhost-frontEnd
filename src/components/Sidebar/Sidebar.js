@@ -4,6 +4,9 @@ import {showAddOptions} from "../../actions/addOptions";
 import {startAddFile} from "../../actions/files";
 import {startAddFolder} from "../../actions/folders"
 import Swal from "sweetalert2";
+import './Sidebar.css';
+import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
+import CreateNewFolderIcon from '@material-ui/icons/CreateNewFolder';
 
 class Sidebar extends React.Component {
     constructor(props) {
@@ -65,14 +68,24 @@ class Sidebar extends React.Component {
         this.props.dispatch(startAddFile(this.fileInput.current, this.props.parent, this.props.parentList))
         this.fileInput.current.value = ""
     }
+    triggerClick = (e) => {
+        //e.preventDefault();
+        console.log(this.fileInput.current)
+        this.fileInput.current.click();
+    }
     render(){
         return(
-            <div>
-                Sidebar
-                <form>
-                    <input name='fileInput' ref={this.fileInput} type="file" multiple={true} onChange={this.handleUpload}/>
-                </form>
-                <div onClick={this.createFolder}>
+            <div className='sidebarContainer sidebar'>
+                
+                <div onClick={this.triggerClick} className='sidebar__createFolder'>
+                    <InsertDriveFileIcon/>
+                    <p>Upload File</p>
+                    <input  className='sidebar__uploadFile' name='fileInput' ref={this.fileInput} type="file" multiple={true} onChange={this.handleUpload}/>
+                </div>
+                
+                
+                <div className='sidebar__createFolder' onClick={this.createFolder} >
+                    <CreateNewFolderIcon/>
                     <p>Create Folder</p>
                 </div>
                 

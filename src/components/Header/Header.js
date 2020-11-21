@@ -13,6 +13,7 @@ import logoIcon from '../../assets/cloudLogo.png'
 import {v4 as uuid} from  'uuid';
 import SuggestedItem from '../SuggestedItem/suggestedItem';
 import "./Header.css";
+import SearchIcon from '@material-ui/icons/Search';
 
 
 class Header extends React.Component {
@@ -133,6 +134,7 @@ class Header extends React.Component {
             <header className='headerPane'>
                 <img className='logo' onclick={this.props.goHome}src={logoIcon}></img>
                 <form class='header-form' onSubmit={this.searchEvent}>
+                    {/* <SearchIcon color="primary" className="searchIcon"/> */}
                     <input class="header-input"value={this.searchBarValue} placeholder="Search" type="text" onFocus={this.showSuggested} onBlur={this.hideSuggested} onChange={this.searchOnChange}></input>
                     <div className={(this.state.focused && (this.state.suggestedList.folderList.length !== 0 || this.state.suggestedList.fileList.length !== 0)) ? "header__input__suggested" : "header__input__suggested header__input__suggested--gone"}>
 

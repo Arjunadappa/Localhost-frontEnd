@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+.sidebar{
+    width: 20vw;
+    min-width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:white;
+    border-radius:10px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.sidebar__uploadFile{
+   display:none;
+  
+   
+}
+.sidebar__createFolder{
+
+    border-bottom: 1px solid #dadce0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 10px;
+}
+.sidebar__createFolder:hover{
+    background:#F1F3F4
+}

@@ -120,8 +120,8 @@ class HomePage extends React.Component{
     getFiles = () => {
     
         this.props.dispatch(startSetQuickFiles())
-        // this.props.dispatch(startSetFolders());
-        // this.props.dispatch(startSetFiles())
+        this.props.dispatch(startSetFolders());
+        this.props.dispatch(startSetFiles())
     }
 
     goHome = () => {
@@ -132,9 +132,7 @@ class HomePage extends React.Component{
         return (
             <div className="HomePage">
                 <Header goHome={this.goHome}/>
-                <div className="content">
-                    <Sidebar/>
-                </div>
+                <Sidebar></Sidebar>
                 
             </div>
         )
