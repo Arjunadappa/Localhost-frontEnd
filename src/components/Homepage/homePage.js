@@ -9,6 +9,10 @@ import {startSetQuickFiles, setQuickFiles} from "../../actions/quickFiles";
 import {startSetFiles} from "../../actions/files";
 import {startSetFolders} from "../../actions/folders";
 import Header from '../Header/Header';
+import {resetSelectedItem, resetSelected, setLastSelected, setRightSelected} from "../../actions/selectedItem"
+import {goneSideBar, loadMoreItems} from "../../actions/main";
+import Sidebar from '../Sidebar/Sidebar';
+import './homePage.css'
 
 
 class HomePage extends React.Component{
@@ -49,60 +53,60 @@ class HomePage extends React.Component{
         }
 
     }
-    // historyUpdateCheck = () => {
+    historyUpdateCheck = () => {
 
-    //     console.log("history update check");
+        console.log("history update check");
 
-    //     const pathname = history.location.pathname
+        const pathname = history.location.pathname
 
-    //     if (pathname === "/home") {
+        if (pathname === "/home") {
 
-    //         this.getFiles();
-    //         //this.props.dispatch(startSetStorage());
-    //         this.props.dispatch(resetCurrentlySearching());
-    //         this.props.dispatch(setParent("/"))
-    //         this.props.dispatch(resetParentList());
-    //         //this.props.dispatch(startSetStorage());
+            this.getFiles();
+            //this.props.dispatch(startSetStorage());
+            this.props.dispatch(resetCurrentlySearching());
+            this.props.dispatch(setParent("/"))
+            this.props.dispatch(resetParentList());
+            //this.props.dispatch(startSetStorage());
 
-    //     } else if (pathname.includes("/folder"))  {
+        } else if (pathname.includes("/folder"))  {
 
-    //         const sortBy = this.props.sortBy
-    //         const idSplit = history.location.pathname.split("/folder/");
-    //         const id = idSplit[1];
+            const sortBy = this.props.sortBy
+            const idSplit = history.location.pathname.split("/folder/");
+            const id = idSplit[1];
 
-    //         this.props.dispatch(setQuickFiles([]));
-    //         this.props.dispatch(setLastSelected(0));
-    //         this.props.dispatch(resetSelectedItem())
-    //         this.props.dispatch(resetCurrentlySearching());
-    //         this.props.dispatch(setLastSelected(0));
-    //         this.props.dispatch(resetSelected());
-    //         this.props.dispatch(setParent(id));
-    //         this.props.dispatch(startSetParentList(id))
-    //         this.props.dispatch(startSetFolders(id, sortBy));
-    //         this.props.dispatch(startSetFiles(id, sortBy));
-    //         this.props.dispatch(setRightSelected(""))
-    //         this.props.dispatch(startSetStorage());
-    //         this.props.dispatch(loadMoreItems(true))
+            this.props.dispatch(setQuickFiles([]));
+            this.props.dispatch(setLastSelected(0));
+            this.props.dispatch(resetSelectedItem())
+            this.props.dispatch(resetCurrentlySearching());
+            this.props.dispatch(setLastSelected(0));
+            this.props.dispatch(resetSelected());
+            this.props.dispatch(setParent(id));
+            this.props.dispatch(startSetParentList(id))
+            this.props.dispatch(startSetFolders(id, sortBy));
+            this.props.dispatch(startSetFiles(id, sortBy));
+            this.props.dispatch(setRightSelected(""))
+            // this.props.dispatch(startSetStorage());
+            this.props.dispatch(loadMoreItems(true))
 
-    //     } else {
+        } else {
 
-    //         const currentPathnameSplit = pathname.split("/search/");
-    //         const value = currentPathnameSplit[1];
-    //         const parent = "/"
+            const currentPathnameSplit = pathname.split("/search/");
+            const value = currentPathnameSplit[1];
+            const parent = "/"
 
-    //         this.props.dispatch(setCurrentlySearching());
-    //         this.props.dispatch(setParent(parent))
-    //         this.props.dispatch(loadMoreItems(true))
-    //         this.props.dispatch(startSetFiles(undefined, undefined, value));
-    //         this.props.dispatch(startSetFolders(undefined, undefined, value));
-    //         this.props.dispatch(setParent)
-    //         this.props.dispatch(setParentList(["/"], ["Home"]))   
-    //         this.props.dispatch(setSearch(""))
-    //         //this.props.dispatch(startSetStorage());
+            this.props.dispatch(setCurrentlySearching());
+            this.props.dispatch(setParent(parent))
+            this.props.dispatch(loadMoreItems(true))
+            this.props.dispatch(startSetFiles(undefined, undefined, value));
+            this.props.dispatch(startSetFolders(undefined, undefined, value));
+            this.props.dispatch(setParent)
+            this.props.dispatch(setParentList(["/"], ["Home"]))   
+            this.props.dispatch(setSearch(""))
+            //this.props.dispatch(startSetStorage());
 
-    //     }
+        }
 
-    // }
+    }
     componentDidMount = () => {
 
         console.log("Homepage mounted");
@@ -111,7 +115,7 @@ class HomePage extends React.Component{
         //this.listStyleCheck();
         this.loginCheck();
         //this.setSessionStorage();
-        // this.historyUpdateCheck();
+        this.historyUpdateCheck();
     }
     getFiles = () => {
     
@@ -126,8 +130,12 @@ class HomePage extends React.Component{
 
     render(){
         return (
-            <div>
+            <div className="HomePage">
                 <Header goHome={this.goHome}/>
+                <div className="content">
+                    <Sidebar/>
+                </div>
+                
             </div>
         )
     }

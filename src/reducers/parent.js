@@ -42,7 +42,7 @@ export default (state = defaultState, action) => {
         
             return {
                 ...state,
-                parentList: parentList.filter((parent) => {
+                parentList: state.parentList.filter((parent) => {
                     return parent._id !== action.parent
                 })
             }

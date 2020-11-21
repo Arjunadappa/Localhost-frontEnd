@@ -131,7 +131,7 @@ class Header extends React.Component {
     render(){
         return (
             <header className='headerPane'>
-                <img className='logo' src={logoIcon}></img>
+                <img className='logo' onclick={this.props.goHome}src={logoIcon}></img>
                 <form class='header-form' onSubmit={this.searchEvent}>
                     <input class="header-input"value={this.searchBarValue} placeholder="Search" type="text" onFocus={this.showSuggested} onBlur={this.hideSuggested} onChange={this.searchOnChange}></input>
                     <div className={(this.state.focused && (this.state.suggestedList.folderList.length !== 0 || this.state.suggestedList.fileList.length !== 0)) ? "header__input__suggested" : "header__input__suggested header__input__suggested--gone"}>
