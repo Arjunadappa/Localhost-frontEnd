@@ -12,6 +12,7 @@ import Header from '../Header/Header';
 import {resetSelectedItem, resetSelected, setLastSelected, setRightSelected} from "../../actions/selectedItem"
 import {goneSideBar, loadMoreItems} from "../../actions/main";
 import Sidebar from '../Sidebar/Sidebar';
+import MainSection from '../MainSection/index'
 import './homePage.css'
 
 
@@ -132,7 +133,8 @@ class HomePage extends React.Component{
         return (
             <div className="HomePage">
                 <Header goHome={this.goHome}/>
-                <Sidebar></Sidebar>
+                <Sidebar/>
+                <MainSection/>
                 
             </div>
         )

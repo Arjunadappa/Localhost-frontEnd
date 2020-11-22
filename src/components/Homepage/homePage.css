@@ -7,3 +7,10 @@
     border: 2px solid #50C8EF;
 
 }
+.mainSectionContainer{
+    display: flex;
+    flex-direction:column;
+    /* width:80vw; */
+    width:fill-available;
+    overflow-x: hidden;
+}
