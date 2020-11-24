@@ -25,7 +25,7 @@ export const startSetSelectedItem = (id, file, fromQuickItems) => {
 
         if (file) {
                 
-            axios.get(`http://localhost:3000/fileService/fileInfo/${id}`, config).then((results) => {
+            axios.get(`http://localhost:4000/fileService/fileInfo/${id}`, config).then((results) => {
 
                 const {filename: name, length: size, uploadDate: date, parentName: location, metadata, _id: id} = results.data;
 
@@ -37,9 +37,9 @@ export const startSetSelectedItem = (id, file, fromQuickItems) => {
 
         } else {
 
-            axios.get(`http://localhost:3000/folderService/get-info/${id}`, config).then((results) => {
-
-                const {name, 0: size, createdAt: date, parentName: location} = results.data;
+            axios.get(`http://localhost:4000/folderService/get-info/${id}`, config).then((results) => {
+                console.log(results)
+                const {folderName:name, 0: size, createdAt: date, parentName: location} = results.data;
 
                 dispatch(setSelectedItem({name, size, date, file, location}))
                 

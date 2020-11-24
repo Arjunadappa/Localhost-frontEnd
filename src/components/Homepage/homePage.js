@@ -1,5 +1,5 @@
 import {history} from "../../routers/App";
-import uuid from "uuid";
+import {v4 as uuid} from "uuid";
 import {connect} from "react-redux";
 import React from "react";
 import {setParent,resetParentList, startSetParentList, setParentList} from "../../actions/ParentSetters";
@@ -74,6 +74,7 @@ class HomePage extends React.Component{
             const sortBy = this.props.sortBy
             const idSplit = history.location.pathname.split("/folder/");
             const id = idSplit[1];
+            console.log(id)
 
             this.props.dispatch(setQuickFiles([]));
             this.props.dispatch(setLastSelected(0));
@@ -108,6 +109,65 @@ class HomePage extends React.Component{
         }
 
     }
+    historyUpdateCheckRefresh = () => {
+
+        const currentPathname = history.location.pathname
+
+        if (this.lastLocationKey !== history.location.key && currentPathname !== "/home" && currentPathname.includes("/search")) {
+
+            console.log("search update");
+
+            const currentPathnameSplit = currentPathname.split("/search/");
+            const value = currentPathnameSplit[1];
+            const parent = "/"
+
+            this.props.dispatch(setParent(parent))
+            this.props.dispatch(loadMoreItems(true))
+            this.props.dispatch(startSetFiles(undefined, undefined, value));
+            this.props.dispatch(startSetFolders(undefined, undefined, value));
+            this.props.dispatch(setCurrentlySearching());
+            this.props.dispatch(setParentList(["/"], ["Home"]))        
+            this.props.dispatch(setSearch(""))
+            // this.props.dispatch(startSetStorage());
+
+
+        } else if (this.lastLocationKey !== history.location.key && history.location.pathname !== "/home") {
+
+            console.log("folder update");
+
+            const sortBy = this.props.sortBy
+            const idSplit = history.location.pathname.split("/folder/");
+            const id = idSplit[1];
+
+            this.props.dispatch(setQuickFiles([]));
+            this.props.dispatch(setLastSelected(0));
+            this.props.dispatch(resetSelectedItem())
+            this.props.dispatch(resetCurrentlySearching());
+            this.props.dispatch(setLastSelected(0));
+            this.props.dispatch(resetSelected());
+            this.props.dispatch(setParent(id));
+            this.props.dispatch(startSetParentList(id))
+            this.props.dispatch(loadMoreItems(true))
+            this.props.dispatch(startSetFolders(id, sortBy));
+            this.props.dispatch(startSetFiles(id, sortBy));
+            this.props.dispatch(setRightSelected(""))
+            // this.props.dispatch(startSetStorage());
+
+        } else if (this.lastLocationKey !== history.location.key) {
+
+            console.log("home update");
+
+
+            this.getFiles();
+            // this.props.dispatch(startSetStorage());
+            this.props.dispatch(resetCurrentlySearching());
+            this.props.dispatch(setParent("/"))
+            this.props.dispatch(resetParentList());
+            // this.props.dispatch(startSetStorage());
+        }
+
+        this.lastLocationKey = history.location.key
+    }
     componentDidMount = () => {
 
         console.log("Homepage mounted");
@@ -115,7 +175,7 @@ class HomePage extends React.Component{
        
         //this.listStyleCheck();
         this.loginCheck();
-        //this.setSessionStorage();
+        this.setSessionStorage();
         this.historyUpdateCheck();
     }
     getFiles = () => {
@@ -127,6 +187,10 @@ class HomePage extends React.Component{
 
     goHome = () => {
         history.push("/home")
+    }
+    setSessionStorage = () => {
+
+        window.sessionStorage.setItem("uuid", uuid());
     }
 
     render(){

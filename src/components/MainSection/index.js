@@ -14,7 +14,7 @@ class MainSectionContainer extends React.Component {
         super(props);
     }
     folderClick = (id) => {
-
+        console.log(id);
         const currentDate = Date.now();
         const mobile = mobileCheck();
         const selectedID = this.props.selected;

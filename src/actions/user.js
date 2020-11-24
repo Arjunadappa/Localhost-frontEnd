@@ -74,7 +74,7 @@ export const startLogout = () => {
             headers: {'Authorization': "Bearer " + token}
         };
     
-        axios.post("http://localhost:3000/userService/logout/", undefined,config).then(() => {
+        axios.post("http://localhost:4000/userService/logout/", undefined,config).then(() => {
 
             window.localStorage.removeItem("token")
 

@@ -14,6 +14,7 @@ const App = () => {
             <Switch>
                 <Route path="/" exact={true} component={SignUp} />
                 <Route key={1} path="/home" component={HomePage}/>
+                <Route key={1} path="/folder/:id" component={HomePage}/>
             </Switch>
             
         </Router>

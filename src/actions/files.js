@@ -40,7 +40,7 @@ export const startSetFiles = (parent="/", sortby="DEFAULT", search="") => {
         dispatch(setFiles([]))
 
         axios.get(`http://localhost:4000/fileService/list?parent=${parent}&sortby=${sortby}&search=${search}&limit=${limit}`, config).then((results) => {
-   
+            console.log(results)
             dispatch(setLoading(true))
             dispatch(setFiles(results.data))
             dispatch(setLoading(false))
