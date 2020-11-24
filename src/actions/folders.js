@@ -24,6 +24,7 @@ export const startAddFolder = (folderName, createdBy, parentDirectory, Directory
         axios.post(`http://localhost:4000/folderService/upload`, body, config).then((response) => {
 
             const folder = response.data;
+            console.log(folder);
 
             dispatch(addFolder(folder))
 
@@ -68,7 +69,8 @@ export const startRemoveFolder = (id, parentList) => {
 
     return (dispatch) => {
 
-        const data = {id, parentList};
+        const data = {id, directoryHierarachy:parentList};
+        console.log(data);
 
         const headers = {'Authorization': "Bearer " + window.localStorage.getItem("token")}
 
@@ -104,7 +106,7 @@ export const startRenameFolder = (id, title) => {
 
         axios.patch(`http://localhost:4000/folderService/rename`, data, config).then((response) => {
 
-            dispatch(editFolder(id, {name: title}))
+            dispatch(editFolder(id, {folderName: title}))
 
         }).catch((err) => {
             console.log(err)

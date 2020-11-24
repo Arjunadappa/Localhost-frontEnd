@@ -37,14 +37,14 @@ const FolderItem = (props) => {
             : 
 
             <div className="folder__item"
-                onClick={() => props.folderClick(props._id, props.name)} 
+                onClick={() => props.folderClick(props._id, props.folderName)} 
                 onContextMenu={(e) => props.getContextMenu(e)}
                 onTouchStart={props.onTouchStart}
                 onTouchEnd={props.onTouchEnd}
                 onTouchMove={props.onTouchMove}>
 
             <img className="folder__image" src={FolderImage}/>
-            <h4 className={props._id !== props.selected ? "folder__title" : "folder__title folder__title--selected"}>{props.name}</h4>
+            <h4 className={props._id !== props.selected ? "folder__title" : "folder__title folder__title--selected"}>{props.folderName}</h4>
 
             {(props.rightSelected === props._id && props._id === props.selected) ? 
                 

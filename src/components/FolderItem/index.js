@@ -17,7 +17,7 @@ class FolderItemContainer extends React.Component {
         return (nextProp.itemSelected !== this.props.itemSelected 
                 || nextProp.listView !== this.props.listView 
                 || nextProp.rightSelected !== this.props.rightSelected 
-                || nextProp.name !== this.props.name
+                || nextProp.folderName !== this.props.folderName
                 || nextProp.quickFilesLength !== this.props.quickFilesLength)
     }
 

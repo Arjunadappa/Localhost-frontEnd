@@ -40,7 +40,7 @@ export const startSetSelectedItem = (id, file, fromQuickItems) => {
             axios.get(`http://localhost:4000/folderService/get-info/${id}`, config).then((results) => {
                 console.log(results)
                 const {folderName:name, 0: size, createdAt: date, parentName: location} = results.data;
-
+                console.log(name)
                 dispatch(setSelectedItem({name, size, date, file, location}))
                 
             }).catch((err) => {

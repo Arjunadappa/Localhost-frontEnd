@@ -3,7 +3,8 @@ import ContentHeading from "../ContentHeading/ContentHeading"
 import RecentFiles from "../RecentFiles/RecentFiles";
 import "./MainSection.css";
 import InfiniteScroll from 'react-infinite-scroller';
-import DataForm from '../Dataform'
+import DataForm from '../Dataform';
+import Filter from '../Filter';
 
 const MainSection = React.forwardRef((props, ref) => {
 
@@ -30,7 +31,7 @@ const MainSection = React.forwardRef((props, ref) => {
                     >
 
 
-                    
+                        <Filter/>
                         <DataForm 
                             folderClick={props.folderClick}
                             fileClick={props.fileClick}
