@@ -19,7 +19,7 @@ export const startAddFolder = (folderName, createdBy, parentDirectory, Directory
             headers: {'Authorization': "Bearer " + window.localStorage.getItem("token")}
         };
 
-        const body = {folderName, parentDirectory, createdBy, DirectoryHierarachy};
+        const body = {folderName, parentDirectory, createdBy, directoryHierarachy:DirectoryHierarachy};
 
         axios.post(`http://localhost:4000/folderService/upload`, body, config).then((response) => {
 

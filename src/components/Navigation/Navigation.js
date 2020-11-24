@@ -3,7 +3,8 @@ import {connect} from "react-redux";
 import {history} from "../../routers/App";
 import React from "react";
 import mobileCheck from "../../utils/mobileCheck";
-import ArrowImage from "../../assets/right-arrow-svg.svg"
+import ArrowImage from "../../assets/right-arrow-svg.svg";
+import "./Navigation.css"
 
 class NavigationContainer extends React.Component {
     constructor(props) {

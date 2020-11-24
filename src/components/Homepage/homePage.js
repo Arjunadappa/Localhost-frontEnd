@@ -190,7 +190,9 @@ class HomePage extends React.Component{
     }
 
     goHome = () => {
-        history.push("/home")
+        console.log('clicked')
+        history.push("/home");
+        
     }
     setSessionStorage = () => {
 
