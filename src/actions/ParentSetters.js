@@ -29,6 +29,7 @@ export const startSetParentList = (id) => {
 
             const parentList = response.data.folderIDList;
             const parentNameList = response.data.folderNameList;
+            console.log(response.data)
 
             dispatch(setParentList(parentList, parentNameList))
             

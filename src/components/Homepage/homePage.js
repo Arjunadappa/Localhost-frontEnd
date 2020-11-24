@@ -178,6 +178,10 @@ class HomePage extends React.Component{
         this.setSessionStorage();
         this.historyUpdateCheck();
     }
+    componentDidUpdate = () => {
+
+        this.historyUpdateCheckRefresh();
+    }
     getFiles = () => {
     
         this.props.dispatch(startSetQuickFiles())

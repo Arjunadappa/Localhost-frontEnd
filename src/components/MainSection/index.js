@@ -21,7 +21,8 @@ class MainSectionContainer extends React.Component {
 
         if ((currentDate - this.props.lastSelected < 1500 && selectedID === id) || mobile) {
 
-            history.push(`/folder/${id}`)
+            history.push(`/folder/${id}`);
+            this.props.dispatch(startSetSelectedItem(id, false));
 
         } else {
             this.props.dispatch(startSetSelectedItem(id, false));

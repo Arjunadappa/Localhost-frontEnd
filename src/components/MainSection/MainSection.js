@@ -5,11 +5,13 @@ import "./MainSection.css";
 import InfiniteScroll from 'react-infinite-scroller';
 import DataForm from '../Dataform';
 import Filter from '../Filter';
+import Navigation from '../Navigation/Navigation'
 
 const MainSection = React.forwardRef((props, ref) => {
 
     return (
         <div className="mainSectionContainer">
+                <Navigation/>
                 <div className="File_Foldersection">
                     <div className='mainsection' ref={ref}>
                         {(props.quickFiles.length !== 0 && props.parent === "/") ? 
