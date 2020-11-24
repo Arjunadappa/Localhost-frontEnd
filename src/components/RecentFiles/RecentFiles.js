@@ -1,6 +1,7 @@
 import {connect} from "react-redux";
 import React from "react";
-import RecentFileItem from "../RecentFileItem/index"
+import RecentFileItem from "../RecentFileItem/index";
+import "./RecentFiles.css"
 
 class RecentFilesContainer extends React.Component {
 

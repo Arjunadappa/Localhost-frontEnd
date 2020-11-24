@@ -2,6 +2,7 @@ import ContextMenu from ".././ContextMenu"
 import capitalize from "../../utils/capitalize";
 import moment from "moment";
 import React from "react";
+import "./RecentFileItem.css";
 
 const RecentFileItem = (props) => (
 

@@ -6,6 +6,7 @@ import {setRightSelected, setLastSelected, setSelected} from "../../actions/sele
 import capitalize from "../../utils/capitalize";
 import moment from "moment";
 import RecentFileItem from "./RecentFileItem"
+import fileImage from "../../assets/file-svg.svg"
 class RecentFileItemContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -14,7 +15,7 @@ class RecentFileItemContainer extends React.Component {
 
         this.state = {
             contextMenuPos: {},
-            image: "/images/file-svg.svg",
+            image: fileImage,
             imageClassname: "quickaccess__item__image"
         }
     }
@@ -38,7 +39,7 @@ class RecentFileItemContainer extends React.Component {
 
         await this.setState(() => ({
             ...this.state,
-            image: "/images/file-svg.svg",
+            image: fileImage,
             imageClassname: "quickaccess__item__image"
         }))
     
