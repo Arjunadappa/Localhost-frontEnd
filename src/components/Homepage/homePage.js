@@ -12,7 +12,8 @@ import Header from '../Header/Header';
 import {resetSelectedItem, resetSelected, setLastSelected, setRightSelected} from "../../actions/selectedItem"
 import {goneSideBar, loadMoreItems} from "../../actions/main";
 import Sidebar from '../Sidebar/Sidebar';
-import MainSection from '../MainSection/index'
+import MainSection from '../MainSection/index';
+import PhotoViewer from '../PhotoViewer'
 import './homePage.css'
 
 
@@ -205,6 +206,8 @@ class HomePage extends React.Component{
                 <Header goHome={this.goHome}/>
                 <Sidebar/>
                 <MainSection/>
+                {this.props.photoID.length === 0 ? undefined :
+                <PhotoViewer />}
                 
             </div>
         )

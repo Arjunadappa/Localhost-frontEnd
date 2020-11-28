@@ -106,13 +106,14 @@ class Header extends React.Component {
         }
 
         axios.get(`http://localhost:4000/fileService/suggested-list/?search=${this.searchBarValue}`, config).then((results) => {
-
+            console.log(results.data)
             this.setState(() => {
                 return {
                     ...this.state, 
                     suggestedList: results.data
                 }
             })
+            
            
 
         }).catch((err) => {

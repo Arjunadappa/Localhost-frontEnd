@@ -98,7 +98,7 @@ class MainSectionContainer extends React.Component {
         .then((response) => {
 
             const tempToken = response.data.tempToken;
-            const finalUrl = `http://localhost:4000/fileService/download/${fileID}/`
+            const finalUrl = `http://localhost:4000/fileService/download/${fileID}/${tempToken}`
 
             const link = document.createElement('a');
             document.body.appendChild(link);

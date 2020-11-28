@@ -5,12 +5,15 @@ import "./MainSection.css";
 import InfiniteScroll from 'react-infinite-scroller';
 import DataForm from '../Dataform';
 import Filter from '../Filter';
-import Navigation from '../Navigation/Navigation'
+import Navigation from '../Navigation/Navigation';
+import PopupWindow from '../PopupWindow/';
+import ShareMenu from '../ShareMenu'
 
 const MainSection = React.forwardRef((props, ref) => {
 
     return (
         <div className="mainSectionContainer">
+                {props.showPopup ? <PopupWindow downloadFile={props.downloadFile}/> : undefined}
                 <Navigation/>
                 <div className="File_Foldersection">
                     <div className='mainsection' ref={ref}>
@@ -23,6 +26,7 @@ const MainSection = React.forwardRef((props, ref) => {
                             </div> :
                             <div className="recent_files">
                             </div>}
+                            <ShareMenu />
                     <InfiniteScroll
                         pageStart={0}
                         loadMore={props.loadMoreItems}
