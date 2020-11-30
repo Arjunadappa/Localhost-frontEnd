@@ -2,6 +2,9 @@ import UploadItem from "./UploadItem"
 import {cancelUpload} from "../../actions/uploads";
 import {connect} from "react-redux";
 import React from "react";
+import errorIcon from '../../assets/error-red.png'
+import CheckGreen from "../../assets/check-green.png";
+import closecircle from "../../assets/close-circle-outline.svg";
 
 class UploadItemContainer extends React.Component {
 
@@ -51,11 +54,11 @@ class UploadItemContainer extends React.Component {
     getUploadImage = () => {
 
         if (this.props.canceled) {
-            return "/images/error-red.png"
+            return errorIcon
         } else if (this.props.completed) {
-            return "/images/check-green.png"
+            return CheckGreen
         } else {
-            return "/images/close-circle-outline.svg"
+            return closecircle
         }
 
     }

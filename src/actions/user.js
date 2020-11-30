@@ -30,6 +30,23 @@ export const createAccountAction = (name,email,password) => {
         })
         .catch((error) => {
             console.log(error);
+            if (error.response) {
+
+                const errStatus = error.response.status;
+
+                if (errStatus === 401) {
+
+                    dispatch(setLoginFailed("Create Blocked By Admin"))
+
+                } else {
+
+                    dispatch(setLoginFailed("Duplicate Email, or Invalid Password"))
+                }
+
+            } else {
+
+                dispatch(setLoginFailed("Duplicate Email, or Invalid Password"))
+            }
         })
     }
 }
@@ -41,10 +58,12 @@ export const createLoginAction = (email,password,currentRoute) => {
             const token = response.data.token;
             const user_id = response.data.user._id;
             window.localStorage.setItem("token", token);
+            dispatch(setLoginFailed(false))
             dispatch(login(user_id));
             history.push(currentRoute);
         }).catch((error) => {
             console.log(error);
+            dispatch(setLoginFailed("Incorrect Email or Password"))
         })
 
     }
@@ -57,10 +76,17 @@ export const createLoginWithToken = (token,currentRoute) => {
         }
         axios.get('http://localhost:4000/userService/me',bearerToken).then((response) => {
             const user_id = response.data._id;
+            dispatch(setLoginFailed(false))
             dispatch(login(user_id));
             console.log(history)
             history.push(currentRoute);
-        }).catch(e => console.log(e)) 
+        }).catch(e => {
+            console.log(e);
+            console.log("login check error", e);
+            window.localStorage.removeItem("token")
+            dispatch(setLoginFailed("Login Expired"))
+        }
+            ) 
     }
 }
 

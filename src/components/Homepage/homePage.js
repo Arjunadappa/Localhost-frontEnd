@@ -15,7 +15,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import MainSection from '../MainSection/index';
 import PhotoViewer from '../PhotoViewer'
 import './homePage.css';
-
+import Uploader from ".././Uploader";
 
 
 class HomePage extends React.Component{
@@ -207,6 +207,7 @@ class HomePage extends React.Component{
                 <Header goHome={this.goHome}/>
                 <Sidebar/>
                 <MainSection/>
+                <Uploader /> 
                 {this.props.photoID.length === 0 ? undefined :
                 <PhotoViewer />}
                 

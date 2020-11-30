@@ -157,3 +157,24 @@
     z-index: 3;
     padding:1rem;
 }
+.user-option{
+    display: flex;
+    font-family: 'Nunito', sans-serif;
+    /* background-color:#F1F3F4; */
+
+}
+.option{
+    margin-right: 15px;
+    font-size: 20px;
+    padding:5px;
+}
+.grey-background:hover{
+    background-color:#F1F3F4;
+}
+.erase:hover{
+    background-color: #fc0f2e ;
+}
+.upload-text{
+    font-size: 20px;
+    margin-left: 10px;
+}

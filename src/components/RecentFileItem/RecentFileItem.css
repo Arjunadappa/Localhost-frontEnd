@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
 .quickaccess__item {
     min-width: 186px;
     min-height: 160px;
@@ -10,6 +11,7 @@
     align-items: center;
     border: 1px solid #dadce0;
     border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
 
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -28,6 +30,9 @@
         position: unset;
     }
     
+}
+.quickaccess__item:hover{
+    border: 2px solid #50C8EF;
 }
 .quickaccess__item__image__wrapper {
     width: 100px;

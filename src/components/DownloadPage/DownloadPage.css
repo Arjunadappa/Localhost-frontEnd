@@ -1,0 +1,25 @@
+.downloadpage{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Nunito', sans-serif;
+}
+
+.downloadpage__box {
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 20vw;
+    border-radius: 6px;
+    padding: 1rem;
+    height: 30vh;
+}
+.downloadpage__box__title{
+    font-weight: 500;
+}
+.downloadpage__box__subtitle{
+    font-weight: 300;
+}

@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
 .filter {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 52px;
+    font-family:'Nunito', sans-serif; 
 
     @media (max-width: $desktop-breakpoint) {
         width: 100vw;
@@ -14,10 +16,10 @@
 }
 
 .filter__folder-title {
-    color: #5f6368;
-    margin-left: 22px;
+    
+    /* margin-left: 22px; */
     font-weight: 500;
-    font-size: 13px;
+    font-size: 20px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -26,7 +28,7 @@
     user-select: none;
 }
 .filter__folder-title-wrapper {
-    margin-left: 15px;
+    
 }
 
 .filters__wrapper {

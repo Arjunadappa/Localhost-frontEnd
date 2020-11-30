@@ -79,14 +79,14 @@ class Sidebar extends React.Component {
                 
                 <div onClick={this.triggerClick} className='sidebar__createFolder'>
                     <InsertDriveFileIcon/>
-                    <p>Upload File</p>
+                    <p className="upload-text">Upload File</p>
                     <input  className='sidebar__uploadFile' name='fileInput' ref={this.fileInput} type="file" multiple={true} onChange={this.handleUpload}/>
                 </div>
                 
                 
                 <div className='sidebar__createFolder' onClick={this.createFolder} >
                     <CreateNewFolderIcon/>
-                    <p>Create Folder</p>
+                    <p className="upload-text">Create Folder</p>
                 </div>
                 
             </div>

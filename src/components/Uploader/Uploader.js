@@ -1,5 +1,8 @@
 import UploadItem from ".././UploadItem";
 import React from "react";
+import CloseIcon from '../../assets/close-white-png.png';
+import DownArrow from '../../assets/down-arrow-white.png';
+import UpArrow from '../../assets/up-arrow-white.png';
 
 const Uploader = React.forwardRef((props, ref) => (
     <div className={props.uploads.length !== 0 ? "uploader__wrapper" : "uploader__wrapper--gone"}>
@@ -9,8 +12,8 @@ const Uploader = React.forwardRef((props, ref) => (
             <h3 className="uploader__header__title">Uploads</h3>
 
             <div className="uploader__header__button_wrapper">
-                <img className="uploader__header__button" onClick={() => props.minimizeUploader()} src={props.uploaderShow ? "/images/down-arrow-white.png" : "/images/up-arrow-white.png"}/>
-                <img className="uploader__header__button" onClick={() => props.cancelAllUploadsEvent()} src="/images/close-white-png.png"/>
+                <img className="uploader__header__button" onClick={() => props.minimizeUploader()} src={props.uploaderShow ? DownArrow : UpArrow}/>
+                <img className="uploader__header__button" onClick={() => props.cancelAllUploadsEvent()} src={CloseIcon}/>
             </div>
 
         </div>
