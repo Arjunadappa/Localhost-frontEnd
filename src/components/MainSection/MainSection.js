@@ -7,7 +7,8 @@ import DataForm from '../Dataform';
 import Filter from '../Filter';
 import Navigation from '../Navigation/Navigation';
 import PopupWindow from '../PopupWindow/';
-import ShareMenu from '../ShareMenu'
+import ShareMenu from '../ShareMenu';
+import MoverMenu from '../MoverMenu';
 
 const MainSection = React.forwardRef((props, ref) => {
 
@@ -44,6 +45,9 @@ const MainSection = React.forwardRef((props, ref) => {
                             downloadFile={props.downloadFile}/>
                     
                     </InfiniteScroll>
+                    {props.moverID.length === 0 ? undefined :
+                    <MoverMenu />
+                    }
                         
 
                     </div>

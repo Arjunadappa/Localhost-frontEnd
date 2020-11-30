@@ -14,7 +14,8 @@ import {goneSideBar, loadMoreItems} from "../../actions/main";
 import Sidebar from '../Sidebar/Sidebar';
 import MainSection from '../MainSection/index';
 import PhotoViewer from '../PhotoViewer'
-import './homePage.css'
+import './homePage.css';
+
 
 
 class HomePage extends React.Component{
