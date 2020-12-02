@@ -1,4 +1,4 @@
-
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
 .path__block {
     height: inherit;
     /* min-height: 7vh; */
@@ -18,12 +18,13 @@
 .path__wrapper {
     /* // background: blue; */
     width: 50vw;
-    margin-left: 12px;
+    /* margin-left: 12px; */
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
     overflow-y: hidden;
     height: 52px;
+    font-family: 'Nunito', sans-serif;
     /* max-height: inherit; */
     min-height: inherit;
     /* min-height: 7vh; */
@@ -37,13 +38,14 @@
 
 .path__title {
     color: black;
-    font-size: 17px;
+    font-size: 20px;
     line-height: 0;
-    font-weight: 300;
+    font-weight: 400;
     white-space: nowrap;
     /* height: fit-content; */
     padding: 0px 0 2px 0;
     margin-top: 19px;
+
 
     @media (max-width: $desktop-breakpoint) {
         line-height: normal;
@@ -52,6 +54,9 @@
         text-align: center;
      }
 }
+/* .path__tile:hover{
+    background: #F1F3F4;
+} */
 
 .path__image {
     height: fit-content;

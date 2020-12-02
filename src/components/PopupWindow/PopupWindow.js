@@ -1,7 +1,8 @@
 
 import capitalize from "../../utils/capitalize";
 import React from "react";
-import CloseIcon from "../../assets/close_icon.png"
+import CloseIcon from "../../assets/close_icon.png";
+import DownloadIcon from "../../assets/download.svg"
 
 class PopupWindow extends React.Component {
 
@@ -41,7 +42,10 @@ class PopupWindow extends React.Component {
                     </video>
                 } 
 
-                <button className=" popup-window__button" onClick={() => this.props.downloadFile(this.props.popupFile._id)}>Download</button>
+                <button className=" popup-window__button" onClick={() => this.props.downloadFile(this.props.popupFile._id)}>
+                    
+                    <img className='Download__icon'src={DownloadIcon}/>
+                </button>
                 <img className="popup-window__close-button" onClick={this.props.hidePopupWindow} src={CloseIcon}/>
             </div>
         )

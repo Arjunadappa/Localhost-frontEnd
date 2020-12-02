@@ -105,3 +105,18 @@ a {
     transform: scale(0.96);
   }
   
+  .logo{
+    width:100px;
+    height:100px;
+  }
+  .login__image__wrapper{
+    position: absolute;
+    bottom:10px;
+    left: 45%;
+    display: flex;
+    
+  }
+  .login__image{
+    width:50px;
+    height: 50px;
+  }

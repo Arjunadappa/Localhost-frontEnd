@@ -4,6 +4,8 @@ import {createAccountAction,createLoginAction,createLoginWithToken} from '../../
 import './signUp.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import cloudLogo from "../../assets/cloudLogo.png";
+import errorIcon from "../../assets/error-red.png";
 
 class SignUp extends React.Component {
     constructor(props){
@@ -77,18 +79,9 @@ class SignUp extends React.Component {
                 </div> 
                 :
                 <div className="box-container">
-                                {/* {this.props.loginFailed ? 
-                        
-                        <div className="login__image__wrapper"> 
-                            <img className="login__image" src="/images/error-red.png"/>
-                            <p className="login__title">{this.props.loginFailed}</p>
-                        </div>
-
-                    :
-
-                    undefined} */}
+                                
                     <div className='signUpContainer'>
-                        <h1 className='title'>Localhost</h1>
+                        <img className="logo"src={cloudLogo}></img>
                         <form className="form" onSubmit={this.signUp}>
                             {this.state.isLogin ? undefined : 
                                 <input className='form-input' name='name' type='text' placeholder='Name' value={this.state.name} onChange={this.handleInputChange}/>
@@ -110,6 +103,16 @@ class SignUp extends React.Component {
                         </div>
                         </form>
                     </div>
+                    {this.props.loginFailed ? 
+                        
+                        <div className="login__image__wrapper"> 
+                            <img className="login__image" src={errorIcon}/>
+                            <p className="login__title">{this.props.loginFailed}</p>
+                        </div>
+
+                    :
+
+                    undefined}
                 </div>
             }
             </div>
