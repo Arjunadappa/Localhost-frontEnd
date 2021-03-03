@@ -25,7 +25,7 @@ export const startSetParentList = (id) => {
             headers: {'Authorization': "Bearer " + window.localStorage.getItem("token")}
         }
 
-        axios.get(`http://localhost:4000/folderService/get-subfolders/?id=${id}`, token).then((response) => {
+        axios.get(`https://damp-plains-53200.herokuapp.com/folderService/get-subfolders/?id=${id}`, token).then((response) => {
 
             const parentList = response.data.folderIDList;
             const parentNameList = response.data.folderNameList;

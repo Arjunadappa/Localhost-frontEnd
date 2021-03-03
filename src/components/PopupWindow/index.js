@@ -35,7 +35,7 @@ class PopupWindowContainer extends React.Component {
             responseType: 'arraybuffer'
         };
 
-        axios.get(`http://localhost:4000/fileService/thumbnail/${thumbnailID}`, config).then((results) => {
+        axios.get(`https://damp-plains-53200.herokuapp.com/fileService/thumbnail/${thumbnailID}`, config).then((results) => {
 
            const imgFile = new Blob([results.data]);
            const imgUrl = URL.createObjectURL(imgFile);

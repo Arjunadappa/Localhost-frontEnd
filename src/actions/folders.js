@@ -21,7 +21,7 @@ export const startAddFolder = (folderName, createdBy, parentDirectory, Directory
 
         const body = {folderName, parentDirectory, createdBy, directoryHierarachy:DirectoryHierarachy};
 
-        axios.post(`http://localhost:4000/folderService/upload`, body, config).then((response) => {
+        axios.post(`https://damp-plains-53200.herokuapp.com/folderService/upload`, body, config).then((response) => {
 
             const folder = response.data;
             console.log(folder);
@@ -49,7 +49,7 @@ export const startSetFolders = (parent = "/", sortby="DEFAULT", search="") => {
 
         dispatch(setFolders([]))
 
-        axios.get(`http://localhost:4000/folderService/list?parent=${parent}&sortby=${sortby}&search=${search}`, config).then((response) => {
+        axios.get(`https://damp-plains-53200.herokuapp.com/folderService/list?parent=${parent}&sortby=${sortby}&search=${search}`, config).then((response) => {
            
             const folders = response.data;
             dispatch(setFolders(folders))
@@ -74,7 +74,7 @@ export const startRemoveFolder = (id, parentList) => {
 
         const headers = {'Authorization': "Bearer " + window.localStorage.getItem("token")}
 
-        axios.delete(`http://localhost:4000/folderService/delete`, {
+        axios.delete(`https://damp-plains-53200.herokuapp.com/folderService/delete`, {
             headers,
             data
         }).then((response) => {
@@ -104,7 +104,7 @@ export const startRenameFolder = (id, title) => {
 
         const data = {id, title}
 
-        axios.patch(`http://localhost:4000/folderService/rename`, data, config).then((response) => {
+        axios.patch(`https://damp-plains-53200.herokuapp.com/folderService/rename`, data, config).then((response) => {
 
             dispatch(editFolder(id, {folderName: title}))
 

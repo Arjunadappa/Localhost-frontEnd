@@ -94,11 +94,11 @@ class MainSectionContainer extends React.Component {
 
         this.props.dispatch(setLastSelected(0));
 
-        axios.get('http://localhost:4000/fileService/download-token/',config)
+        axios.get('https://damp-plains-53200.herokuapp.com/fileService/download-token/',config)
         .then((response) => {
 
             const tempToken = response.data.tempToken;
-            const finalUrl = `http://localhost:4000/fileService/download/${fileID}/${tempToken}`
+            const finalUrl = `https://damp-plains-53200.herokuapp.com/fileService/download/${fileID}/${tempToken}`
 
             const link = document.createElement('a');
             document.body.appendChild(link);

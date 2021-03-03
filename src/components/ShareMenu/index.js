@@ -67,7 +67,7 @@ class ShareMenuContainer extends React.Component {
                     headers: {'Authorization': "Bearer " + window.localStorage.getItem("token")}
                 };
         
-                axios.patch('http://localhost:4000' +`/fileService/make-public/${this.props.shareSelected._id}`, undefined,config).then((results) => {
+                axios.patch('https://damp-plains-53200.herokuapp.com' +`/fileService/make-public/${this.props.shareSelected._id}`, undefined,config).then((results) => {
                     
                     this.props.dispatch(editFile(this.props.shareSelected._id,{"metadata": {
                         ...this.props.shareSelected.metadata,
@@ -116,7 +116,7 @@ class ShareMenuContainer extends React.Component {
                     headers: {'Authorization': "Bearer " + window.localStorage.getItem("token")}
                 };
         
-                axios.patch('http://localhost:4000' +`/fileService/make-one/${this.props.shareSelected._id}`, undefined,config).then((results) => {
+                axios.patch('https://damp-plains-53200.herokuapp.com' +`/fileService/make-one/${this.props.shareSelected._id}`, undefined,config).then((results) => {
                     
                     this.props.dispatch(editFile(this.props.shareSelected._id,{"metadata": {
                         ...this.props.shareSelected.metadata,
@@ -148,7 +148,7 @@ class ShareMenuContainer extends React.Component {
 
         const headers = {'Authorization': "Bearer " + window.localStorage.getItem("token")}
 
-        axios.delete('http://localhost:4000' +`/fileService/remove-link/${this.props.shareSelected._id}`, {
+        axios.delete('https://damp-plains-53200.herokuapp.com' +`/fileService/remove-link/${this.props.shareSelected._id}`, {
             headers
         }).then(() => {
 

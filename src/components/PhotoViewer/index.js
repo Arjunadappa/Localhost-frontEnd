@@ -26,7 +26,7 @@ class PhotoViewerContainer extends React.Component {
             responseType: 'arraybuffer'
         };    
 
-        axios.get(`http://localhost:4000/fileService/thumbnail/${this.props.photoID}`, config).then((response) => {
+        axios.get(`https://damp-plains-53200.herokuapp.com/fileService/thumbnail/${this.props.photoID}`, config).then((response) => {
 
             const imgFile = new Blob([response.data]);
             const imgUrl = URL.createObjectURL(imgFile);

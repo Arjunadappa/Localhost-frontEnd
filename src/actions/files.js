@@ -39,7 +39,7 @@ export const startSetFiles = (parent="/", sortby="DEFAULT", search="") => {
 
         dispatch(setFiles([]))
 
-        axios.get(`http://localhost:4000/fileService/list?parent=${parent}&sortby=${sortby}&search=${search}&limit=${limit}`, config).then((results) => {
+        axios.get(`https://damp-plains-53200.herokuapp.com/fileService/list?parent=${parent}&sortby=${sortby}&search=${search}&limit=${limit}`, config).then((results) => {
             console.log(results)
             dispatch(setLoading(true))
             dispatch(setFiles(results.data))
@@ -73,7 +73,7 @@ export const startLoadMoreFiles = (parent="/", sortby="DEFAULT", search="", star
         let limit = window.localStorage.getItem("list-size") || 50
         limit = parseInt(limit)
 
-        axios.get(`http://localhost:4000/fileService/list?limit=${limit}&parent=${parent}&sortby=${sortby}&search=${search}&startAt=${true}&startAtDate=${startAtDate}&startAtName=${startAtName}`, config).then((results) => {
+        axios.get(`https://damp-plains-53200.herokuapp.com/fileService/list?limit=${limit}&parent=${parent}&sortby=${sortby}&search=${search}&startAt=${true}&startAtDate=${startAtDate}&startAtName=${startAtName}`, config).then((results) => {
             console.log("load more results", results);
 
             if (results.data.length !== limit) {
@@ -147,7 +147,7 @@ export const startAddFile = (uploadInput, parent, parentList) => {
             data.append("fileSize", currentFile.size)
             data.append('file', currentFile);
     
-            axios.post(`http://localhost:4000/fileService/upload/`, data, config)
+            axios.post(`https://damp-plains-53200.herokuapp.com/fileService/upload/`, data, config)
             .then(function (response) {
 
                 const currentParent =  getState().parent.parent;
@@ -182,7 +182,7 @@ export const startRemoveFile = (id) => {
         const headers = {'Authorization': "Bearer " + window.localStorage.getItem("token")};
         const data = {id}
 
-        axios.delete(`http://localhost:4000/fileService/delete/`, {
+        axios.delete(`https://damp-plains-53200.herokuapp.com/fileService/delete/`, {
             headers,
             data
         }).then(() => {
@@ -206,7 +206,7 @@ export const startRenameFile = (id, title) => {
 
         const data = {id, title}
 
-        axios.patch(`http://localhost:4000/fileService/rename/`, data, config).then(() => {
+        axios.patch(`https://damp-plains-53200.herokuapp.com/fileService/rename/`, data, config).then(() => {
 
             dispatch(editFile(id, {filename: title}))
 

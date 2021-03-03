@@ -45,7 +45,7 @@ class DownloadPageContainer extends React.Component {
             headers: {'Authorization': "Bearer " + window.localStorage.getItem("token")}
         };
 
-        axios.get('http://localhost:4000' +`/fileService/public/info/${_id}/${tempToken}`, config).then((results) => {
+        axios.get('https://damp-plains-53200.herokuapp.com' +`/fileService/public/info/${_id}/${tempToken}`, config).then((results) => {
 
            const data = results.data;
 
@@ -70,7 +70,7 @@ class DownloadPageContainer extends React.Component {
 
         const _id = this.props.match.params.id;
         const tempToken = this.props.match.params.tempToken
-        const finalUrl = 'http://localhost:4000' + `/fileService/public/download/${_id}/${tempToken}`
+        const finalUrl = 'https://damp-plains-53200.herokuapp.com' + `/fileService/public/download/${_id}/${tempToken}`
    
         const link = document.createElement('a');
         document.body.appendChild(link);

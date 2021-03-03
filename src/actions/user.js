@@ -17,7 +17,7 @@ export const logout = () => ({
 export const createAccountAction = (name,email,password) => {
     return (dispatch) => {
         const credentials = {name,email,password};
-        axios.post("http://localhost:4000/userService/create/",credentials).then((response) => {
+        axios.post("https://damp-plains-53200.herokuapp.com/userService/create/",credentials).then((response) => {
             const token = response.data.token;
             const user_id = response.data.user._id;
             console.log(response)
@@ -54,7 +54,7 @@ export const createAccountAction = (name,email,password) => {
 export const createLoginAction = (email,password,currentRoute) => {
     return (dispatch) => {
         const credentials = {email,password};
-        axios.post("http://localhost:4000/userService/login/",credentials).then((response) => {
+        axios.post("https://damp-plains-53200.herokuapp.com/userService/login/",credentials).then((response) => {
             const token = response.data.token;
             const user_id = response.data.user._id;
             window.localStorage.setItem("token", token);
@@ -74,7 +74,7 @@ export const createLoginWithToken = (token,currentRoute) => {
         const bearerToken = {
             headers:{'Authorization':"Bearer " + token}
         }
-        axios.get('http://localhost:4000/userService/me',bearerToken).then((response) => {
+        axios.get('https://damp-plains-53200.herokuapp.com/userService/me',bearerToken).then((response) => {
             const user_id = response.data._id;
             dispatch(setLoginFailed(false))
             dispatch(login(user_id));
@@ -100,7 +100,7 @@ export const startLogout = () => {
             headers: {'Authorization': "Bearer " + token}
         };
     
-        axios.post("http://localhost:4000/userService/logout/", undefined,config).then(() => {
+        axios.post("https://damp-plains-53200.herokuapp.com/userService/logout/", undefined,config).then(() => {
 
             window.localStorage.removeItem("token")
 

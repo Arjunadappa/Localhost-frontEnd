@@ -25,7 +25,7 @@ export const startSetSelectedItem = (id, file, fromQuickItems) => {
 
         if (file) {
                 
-            axios.get(`http://localhost:4000/fileService/fileInfo/${id}`, config).then((results) => {
+            axios.get(`https://damp-plains-53200.herokuapp.com/fileService/fileInfo/${id}`, config).then((results) => {
 
                 const {filename: name, length: size, uploadDate: date, parentName: location, metadata, _id: id} = results.data;
 
@@ -37,7 +37,7 @@ export const startSetSelectedItem = (id, file, fromQuickItems) => {
 
         } else {
 
-            axios.get(`http://localhost:4000/folderService/get-info/${id}`, config).then((results) => {
+            axios.get(`https://damp-plains-53200.herokuapp.com/folderService/get-info/${id}`, config).then((results) => {
                 console.log(results)
                 const {folderName:name, 0: size, createdAt: date, parentName: location} = results.data;
                 console.log(name)

@@ -14,7 +14,7 @@ export const startSetQuickFiles = () => {
             headers: {'Authorization': "Bearer " + window.localStorage.getItem("token")}
         };
        
-        axios.get(`http://localhost:4000/fileService/quick-list`, config).then((results) => {
+        axios.get(`https://damp-plains-53200.herokuapp.com/fileService/quick-list`, config).then((results) => {
         
             dispatch(setQuickFiles(results.data))
 

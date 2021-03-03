@@ -51,7 +51,7 @@ class MoverMenuContainer extends React.Component {
 
         if (this.props.isFile) {
 
-            axios.patch('http://localhost:4000'+`/fileService/move`, data, config).then((response) => {
+            axios.patch('https://damp-plains-53200.herokuapp.com'+`/fileService/move`, data, config).then((response) => {
           
                 console.log("file moved!");
     
@@ -62,7 +62,7 @@ class MoverMenuContainer extends React.Component {
         
         } else {
 
-            axios.patch('http://localhost:4000'+`/folderService/move`, data, config).then((response) => {
+            axios.patch('https://damp-plains-53200.herokuapp.com'+`/folderService/move`, data, config).then((response) => {
           
                 console.log("folder moved!");
                 
@@ -105,7 +105,7 @@ class MoverMenuContainer extends React.Component {
             headers: {'Authorization': "Bearer " + window.localStorage.getItem("token")}
         }
 
-        axios.get('http://localhost:4000'+`/folderService/list?parent=${id}&search=${searchValue}&sortBy=DEFAULT}`, config).then((response) => {
+        axios.get('https://damp-plains-53200.herokuapp.com'+`/folderService/list?parent=${id}&search=${searchValue}&sortBy=DEFAULT}`, config).then((response) => {
            
             let folders = response.data;
 
@@ -141,7 +141,7 @@ class MoverMenuContainer extends React.Component {
 
         const id = "/"
      
-        axios.get('http://localhost:4000'+`/folderService/list?parent=${id}`, config).then((response) => {
+        axios.get('https://damp-plains-53200.herokuapp.com'+`/folderService/list?parent=${id}`, config).then((response) => {
                
             let folders = response.data;
 
@@ -187,7 +187,7 @@ class MoverMenuContainer extends React.Component {
             headers: {'Authorization': "Bearer " + window.localStorage.getItem("token")}
         }
 
-        axios.get('http://localhost:4000'+`/folderService/list?parent=${currentID}`, config).then((response) => {
+        axios.get('https://damp-plains-53200.herokuapp.com'+`/folderService/list?parent=${currentID}`, config).then((response) => {
            
             let folders = response.data;
 
@@ -223,7 +223,7 @@ class MoverMenuContainer extends React.Component {
                 headers: {'Authorization': "Bearer " + window.localStorage.getItem("token")}
             }
     
-            axios.get('http://localhost:4000'+`/folderService/list?parent=${id}`, config).then((response) => {
+            axios.get('https://damp-plains-53200.herokuapp.com'+`/folderService/list?parent=${id}`, config).then((response) => {
                
                 let folders = response.data;
 
@@ -266,7 +266,7 @@ class MoverMenuContainer extends React.Component {
 
         const id = "/"
 
-        axios.get('http://localhost:4000'+`/folderService/list?parent=${id}`, config).then((response) => {
+        axios.get('https://damp-plains-53200.herokuapp.com'+`/folderService/list?parent=${id}`, config).then((response) => {
            
             let folders = response.data;
 

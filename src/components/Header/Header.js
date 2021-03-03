@@ -110,7 +110,7 @@ class Header extends React.Component {
             })
         }
 
-        axios.get(`http://localhost:4000/fileService/suggested-list/?search=${this.searchBarValue}`, config).then((results) => {
+        axios.get(`https://damp-plains-53200.herokuapp.com/fileService/suggested-list/?search=${this.searchBarValue}`, config).then((results) => {
             console.log(results.data)
             this.setState(() => {
                 return {
@@ -182,7 +182,7 @@ class Header extends React.Component {
                     oldPassword: result.value[0]
                 }
         
-                axios.post('http://localhost:4000' +`/userService/changePassword/`, data, config).then((results) => {
+                axios.post('https://damp-plains-53200.herokuapp.com' +`/userService/changePassword/`, data, config).then((results) => {
                     
                     const newToken = results.newToken;
                     window.localStorage.setItem("token", newToken);
@@ -224,7 +224,7 @@ class Header extends React.Component {
 
                 const headers = {'Authorization': "Bearer " + window.localStorage.getItem("token")}
 
-                axios.delete('http://localhost:4000/folderService/delete-all', {
+                axios.delete('https://damp-plains-53200.herokuapp.com/folderService/delete-all', {
                     headers
                 }).then((results) => {
 
