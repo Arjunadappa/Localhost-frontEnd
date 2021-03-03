@@ -25,7 +25,7 @@ const ShareMenu = React.forwardRef((props, ref) => {
                     <img className="sharemenu__close-button" onClick={props.hide} src={CloseIcon}/>
                     <div className="sharemenu__link__wrapper">
                         <img onClick={props.copyLink} className="sharemenu__image" src={copyIcon}/>
-                        <p onClick={props.copyLink} className="sharemenu__title">{'http://localhost:3000'}/download-page/{props.shareSelected._id}/{props.shareSelected.metadata.link}</p>
+                        <p onClick={props.copyLink} className="sharemenu__title">{'http://localhostdrive.s3-website.ap-south-1.amazonaws.com'}/download-page/{props.shareSelected._id}/{props.shareSelected.metadata.link}</p>
                     </div>
                     <button className="" onClick={props.removeLink}>Remove Link</button>
                 
