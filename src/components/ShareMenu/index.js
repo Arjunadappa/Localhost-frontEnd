@@ -174,7 +174,7 @@ class ShareMenuContainer extends React.Component {
 
     copyLink = () => {
 
-        const link = 'http://localhostdrive.s3-website.ap-south-1.amazonaws.com' + "/download-page/" + this.props.shareSelected._id + "/" + this.props.shareSelected.metadata.link;
+        const link = 'http://localhostfrontend.s3-website-us-east-1.amazonaws.com' + "/download-page/" + this.props.shareSelected._id + "/" + this.props.shareSelected.metadata.link;
 
         copy(link)
 
